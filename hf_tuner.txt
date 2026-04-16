@@ -1,0 +1,71 @@
+# HF Tuner project
+
+## Part dimensions
+
+Both capacitors have 6.3mm shafts, mounting points are in line with the shaft, mounting hole size: 2.9 mm
+
+### 100 pF variable cap
+
+Mounting points are in line with the shaft
+
+Panel mount points to back: 40 mm
+Mounting screw separation: 16.3 mm
+Width: 24 mm
+Shaft length after mounting points: 14 mm
+Height: 31 mm
+Shaft center above bottom: 19 mm
+
+
+### 150 pF variable cap
+
+Mount points front to back: 51.4 mm
+Mounting screw separation: 16.3 mm
+Width: 24 mm
+Shaft length after mounting points: 22 mm
+Height: 31 mm
+Shaft center above bottom: 19 mm
+
+### BNC connectors
+
+Min hole size: 11.5 mm
+Mounting hole spacing: 12.5 mm
+Mounting hole size: 2.9 mm
+
+### Switches
+
+Mounting hole size: 6.3 mm
+Spacing interval min: 15 mm
+
+### Inductor (for center-tap)
+
+Core diameter: 7.25 mm
+Core len: 25.5 mm
+
+## Construction
+
+Switch-capacitor center-center spacing: 7.5+10+12=29.5 mm
+
+## Inductor center-tap
+
+Gear width: 4 mm
+Both shafts dia: 3 mm
+Gear shaft len: 84 mm
+Slider shaft len: 92 mm
+Slider opposite edge to shaft center: 8 mm
+Slider top edge to shaft center: 5.38 mm
+Slider Shafts center-to-center for gear to work: 7.8 mm
+Slider len: 50 mm
+Slider shaft attachments outside-to-outside: 35 mm
+Slider inside edge to shaft: 3.5 mm
+
+The gear teeth on the slider will be facing down and the whole slider will be on the back side of the shaft against the back wall of the tuner box. The inductor will be mounted above it.
+
+Adjustment range: 42 mm, baed on slider teeth
+Slider shaft fixed mounts inside distance: 42 mm + 35 mm + 1 mm (slider attachment flange clearence) = 78 mm
+
+Total depth from back: 18.2 mm
+
+There will be 4 laser cut 3 mm parts:
+
+* Two identical end-pieces that hold the slider shaft
+* 
