@@ -1,0 +1,68 @@
+% Machine learning program that takes a symbolic transfer function of
+% frequency that has arbitrarily many circuit component values and attempts
+% to minimize and maximize it over given frequency ranges.
+% The gradient-descent algorithm steps component values logarithmically.
+
+% For example it might take a function `rc_lowpass_loading(omega,R,C)`
+% which represents a simple filter with loading. It will also be given a
+% list of maximum and minimum gain ranges (in dB)
+
+% -------------- Transfer function, N params, other config --------------
+syms parameters;
+parameters = [1, 1];
+syms transfer(omega, parameters);% [R, C], Lowpass, loading is 50 ohms
+transfer(omega, parameters) = abs((1 / (1j * omega * parameters(1) + (1 / 50))) / ((1 / (1j * omega * parameters(1) + (1 / 50))) + parameters(2)));
+n_parameters = 2;
+freq_start = 1;
+freq_stop = 1000;
+learning_rate = 0.05;
+learning_steps = 1000;
+
+% Gain band format: [Start freq (Hz), End freq, dB limit (beyond which
+% counts towards the error)]
+min_gain_bands = [[1, 100, -3]];
+max_gain_bands = [[150, 1000, -20]];
+
+% -------------- Gradient Descent --------------
+
+syms error(transfer, omega, parameters, db_limit);
+error_min_limit = (log10(transfer(omega, parameters)) * 10 - db_limit)^2;
+
+function [partial_derivatives] = error_grad(parameters, freq, db_limit, db_limit_is_min)
+    omega = freq * 2 * pi;
+    for i = 1:n_params
+        % Find transfer function in dB
+        transfer_db = log10(transfer(omega, parameters)) * 10;
+        % If transfer function is past a limit, record partial derivative
+        if xor(transfer_db > db_limit, db_limit_is_min == false)
+            partial_derivatives(i) = diff(error(transfer, omega, parameters, db_limit), parameters(i), 1);
+        else
+            partial_derivatives(i) = 0;
+        end
+    end
+end
+
+for step = 1:learning_steps
+    % Update from all min gain bands
+    for band = 1:size(min_gain_bands, 1)
+        freq = logspace(log10(min_gain_bands(band, 1)), log10(min_gain_bands(band, 2)), 100);
+        db_limit_is_min = true;
+        partial_derivatives = error_grad(parameters, freq, min_gain_bands(band, 3), db_limit_is_min);
+        % Update parameters logarithmically: convert to Bells, subtract,
+        % back to linear
+        parameters = pow10(log10(parameters) - learning_rate .* partial_derivatives ./ 10);
+    end
+    % Update from all max gain bands
+    for band = 1:size(max_gain_bands, 1)
+        freq = logspace(log10(max_gain_bands(band, 1)), log10(max_gain_bands(band, 2)), 100);
+        db_limit_is_min = false;
+        partial_derivatives = error_grad(parameters, freq, max_gain_bands(band, 3), db_limit_is_min);
+        % Update parameters logarithmically: convert to Bells, subtract,
+        % back to linear
+        parameters = pow10(log10(parameters) - learning_rate .* partial_derivatives ./ 10);
+    end
+end
+
+% Plot result
+plot_omega = logspace(log10(freq_start * pi * 2), log10(freq_stop * pi * 2), 1000);
+fplot(plot_omega, transfer(plot_omega, parameters));
