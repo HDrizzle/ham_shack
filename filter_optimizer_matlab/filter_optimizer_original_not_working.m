@@ -8,10 +8,10 @@
 % list of maximum and minimum gain ranges (in dB)
 
 % -------------- Transfer function, N params, other config --------------
-syms parameters;
-parameters = [1, 1];
+syms R C;
+parameters = [R, C];
 syms transfer(omega, parameters);% [R, C], Lowpass, loading is 50 ohms
-transfer(omega, parameters) = abs((1 / (1j * omega * parameters(1) + (1 / 50))) / ((1 / (1j * omega * parameters(1) + (1 / 50))) + parameters(2)));
+transfer(omega, parameters) = abs((1 / (1j * omega * parameters(2) + (1 / 50))) / ((1 / (1j * omega * parameters(2) + (1 / 50))) + parameters(1)));
 n_parameters = 2;
 freq_start = 1;
 freq_stop = 1000;

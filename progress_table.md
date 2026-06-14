@@ -6,7 +6,7 @@
 | Power amplifier | Not yet obtained | - | Get it |
 | ATU-100 tuner | Bad | Not assembled | Assemble it |
 | NanoVNA | Good | - | - |
-| DIY Tuner | Goode | - | - |
+| DIY Tuner | Good | - | - |
 | Battery Pack | Not yet obtained | - | Get parts |
 | Solar panel | Not yet obtained | - | Get it |
 | MISC Connectors | Bad | Need power connectors | Get power connectors |
@@ -19,10 +19,20 @@
 
 | Part | Qty | Link/ID | Website |
 | - | - | - | - |
-| 50 ohm resistor | 1 | - | AK |
-| BNC Female for dunny load & balun | 2 | - | AK |
 | BS170 MOSFETs | 24 | BS170-ND | DigiKey |
-| 12V LiFePO4 Battery | 1 | https://www.ebay.com/itm/236352711830 | Ebay |
 | Waterproof case 0.5 ft^3 | 1 | https://www.ebay.com/itm/146049791419 | Ebay |
 | Powerpole connectors kit | 1 | https://www.ebay.com/itm/255475339167 | Ebay |
-| Coax 25ft with BNC ends | 1 | https://www.ebay.com/itm/314414926356?_skw=coax+cable&itmmeta=01KR9SN9JBC868K9BTSYHCVQN3&hash=item4934970a14:g:JUwAAOSwr3pj9SO9& | Ebay |
+| FT 240 43 ferrite | 1 | https://www.ebay.com/itm/389082167356 | Ebay |
+| Solder | 1 | TODO | Digi-key |
+
+## OCFD Design
+
+Really cool article: https://old.w1yca.org/tech/ant/dipolefund.pdf
+
+https://www.hamradiosecrets.com/off-center-fed-dipole.html
+
+9:1 transformer will be used at the feedpoint to make it match ok with coax between that and the tuner and reject common mode current.
+
+Dimensions: total length = 300 / 3.75 / 2 = 40 meters
+Feedpoint: 22.5% offset means 9 meters and 31 meters
+Conversion to 'Murican units: 29.5 ft, 101.7 ft
