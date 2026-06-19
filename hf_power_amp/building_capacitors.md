@@ -26,9 +26,9 @@ Squeezing with a clamp across the wood blocks can get the capacitance to the cor
 
 Calibration for trash bag, 100 pF range: 12.5 pF/cm^2 <- WORNG
 
-970 pF / 8 cm * 3.9 cm = 31 pF / cm^2 (double area)
+530 pF (30 reactance @ 10 MHz) / (4 cm * 3.9 cm * 2 = 31.2) = 17 pF / cm^2
 
 | Area (cm^2) | Plate width | Plate height | Material | Unsqueezed Capacitance (80%) (pF) | Capacitance (pF) | Reactance |
 | - | - | - | - | - | - | - |
-| 43.6 (doubled) | 3.6 | 6 | Trash bag | 544 pF | 680 pF |
-| 62.2 (doubled) | 3.9 | 8 | Trash bag | 776 pF | 970 pF |
+| 32 (doubled) | 2.6 | 6 | Trash bag | 544 pF | 680 pF |
+| - (doubled) | - | - | Trash bag | 776 pF | 970 pF |
