@@ -9,9 +9,9 @@
 
 ## Specs
 
-Switching frequency: 10 KHz
+Switching frequency: 5 KHz
 Maximum current (assume buildup from 0 through inductor over 1 period): 500 mA
-Inductor: using `L = V*secs/A`, `V=2, secs = 1e-4, A  0.5`, `L = 0.4 mH`
+Inductor: using `L = V*secs/A`, `V=2, secs = 2e-4, A  0.5`, `L = 0.8 mH`
 
 ## Maximum power point
 
